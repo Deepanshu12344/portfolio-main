@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# Deepanshu Sharma Portfolio
 
-## Getting Started
+Premium full-stack developer portfolio built with Next.js 15, TypeScript, Tailwind CSS, Framer Motion, Three.js/R3F, GSAP-ready stack, and Lenis smooth scrolling.
 
-First, run the development server:
+## Tech
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- GSAP
+- Shadcn-style reusable UI components
+- React Three Fiber / Drei / Three.js
+- Lenis smooth scrolling
 
+## Setup
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
+Create `.env.local` if adding real contact/email integration:
+```bash
+CONTACT_TO_EMAIL=you@example.com
+CONTACT_FROM_EMAIL=no-reply@yourdomain.com
+RESEND_API_KEY=your_key_here
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Current `POST /api/contact` validates data and returns a success response; wire your mail provider in `src/app/api/contact/route.ts`.
 
-## Learn More
+## Build
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
+1. Push repo to GitHub.
+2. Import in Vercel.
+3. Add environment variables.
+4. Deploy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
+- `src/app`: routing, metadata, SEO, API route
+- `src/components/layout`: app shell + navbar
+- `src/components/sections`: portfolio sections
+- `src/components/effects`: cursor, smooth scroll, palette, loading, 3D bg
+- `src/components/ui`: reusable UI primitives
+- `src/data`: centralized content
+- `src/lib`: utilities
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

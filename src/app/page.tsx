@@ -1,103 +1,160 @@
-import Image from "next/image";
+﻿import { Download } from "lucide-react";
+import { GithubCommitCard } from "@/components/sections/github-commit-card";
+import { SimpleContactForm } from "@/components/sections/simple-contact-form";
+import { FeaturedWorksBrowser } from "@/components/sections/featured-works-browser";
+import { getGithubActivity } from "@/lib/github/activity";
+import { SkillsCarousel } from "@/components/sections/skills-carousel";
 
-export default function Home() {
+const featuredProjects = [
+  {
+    title: "DMS - DOCUMENT MANAGEMENT SYSTEM",
+    category: "EDTECH / RESEARCH",
+    description:
+      "Faculty academic management system for publications, conferences, patents, awards, guest lectures, and projects.",
+    image: "/overview.png",
+    stack: ["NEXT.JS", "NODE.JS", "MONGODB", "RBAC"],
+    liveUrl: "https://github.com/Deepanshu12344",
+  },
+  {
+    title: "EVERSURE MEDICAL PRODUCTS",
+    category: "PRODUCT WEBSITE",
+    description:
+      "Scalable responsive MERN website for Polybond India's Eversure brand with reusable architecture and SEO-first pages.",
+    image: "/projectmain.png",
+    stack: ["MERN", "SEO", "RESPONSIVE UI"],
+    liveUrl: "https://www.eversuremedical.com/",
+  },
+  {
+    title: "CHAT SUMMARIZATION & INSIGHTS API",
+    category: "AI PLATFORM",
+    description:
+      "Full-stack AI summarization platform with FastAPI, MongoDB, Streamlit, Docker, and Cohere API with REST + WebSockets.",
+    image: "/overview.png",
+    stack: ["FASTAPI", "COHERE", "DOCKER", "WEBSOCKETS"],
+    liveUrl: "https://github.com/Deepanshu12344",
+  },
+];
+
+const skillGroups = [
+  { title: "FRONTEND", items: ["REACT", "NEXT.JS", "JAVASCRIPT", "TYPESCRIPT", "TAILWIND CSS"] },
+  { title: "BACKEND", items: ["NODE.JS", "EXPRESS.JS", "FASTAPI", "DJANGO"] },
+  { title: "DATABASES", items: ["MONGODB", "POSTGRESQL"] },
+  { title: "DEVOPS & TOOLS", items: ["DOCKER", "LINUX", "GIT", "REST APIS", "WEBSOCKETS"] },
+  { title: "AI & ADVANCED", items: ["COHERE API", "REAL-TIME SYSTEMS", "SOCKET PROGRAMMING", "POSIX THREADS"] },
+];
+
+function GitHubLogo() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
+      <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.17c-3.34.72-4.04-1.41-4.04-1.41-.54-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.84 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.67-.31-5.48-1.34-5.48-5.95 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.56.12-3.25 0 0 1.01-.33 3.3 1.23a11.4 11.4 0 0 1 6 0c2.28-1.56 3.29-1.23 3.29-1.23.66 1.69.24 2.94.12 3.25.77.84 1.24 1.91 1.24 3.22 0 4.63-2.82 5.64-5.51 5.94.43.37.82 1.1.82 2.23v3.31c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z" />
+    </svg>
   );
 }
+
+function LinkedInLogo() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
+      <path d="M4.98 3.5a2.5 2.5 0 1 0 .02 5 2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3V9Zm7 0h3.83v1.71h.05c.53-1 1.85-2.06 3.8-2.06C21.16 8.65 22 10.8 22 14.02V21h-4v-6.19c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.37 1.61-2.37 3.27V21h-4V9Z" />
+    </svg>
+  );
+}
+
+export default async function Home() {
+  const githubStats = await getGithubActivity();
+
+  return (
+    <main className="min-h-screen bg-black px-4 py-8 text-zinc-100 sm:px-8 sm:py-12">
+      <div className="mx-auto w-full max-w-6xl">
+        <header className="border-b border-zinc-900 pb-5">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <p className="font-mono text-xl font-bold uppercase tracking-[0.06em]">DEEPANSHU SHARMA</p>
+            <nav className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.18em] text-zinc-400">
+              <a href="#about">About</a>
+              <a href="#skills">Skills</a>
+              <a href="#projects">Projects</a>
+              <a href="#contact">Contact</a>
+            </nav>
+          </div>
+        </header>
+
+        <section className="py-16">
+          {/* <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">FULL STACK DEVELOPER</p> */}
+          <h1 className="mt-3 font-mono text-4xl font-bold uppercase tracking-[0.06em] text-zinc-200 sm:text-7xl">
+            BUILDING SCALABLE APPS,
+            <br />
+            AI SYSTEMS & REAL-TIME PLATFORMS
+          </h1>
+          <p className="mt-8 max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
+            I design and build production-grade full stack applications with clean architecture, performance-focused backend systems, and practical AI integrations.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.15em]">
+            <a className="border border-zinc-800 px-4 py-3 text-zinc-200" href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer" aria-label="GitHub"><GitHubLogo /></a>
+            <a className="border border-zinc-800 px-4 py-3 text-zinc-200" href="https://www.linkedin.com/in/deepanshu-sharma-164057250/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedInLogo /></a>
+            <a className="inline-flex items-center gap-2 border border-zinc-800 px-4 py-3 text-zinc-200" href="#" aria-label="Download Resume"><Download className="h-4 w-4" /></a>
+          </div>
+        </section>
+
+        <section id="about" className="border-t border-zinc-900 py-14">
+          <h2 className="font-mono text-4xl font-bold uppercase tracking-[0.06em]">ABOUT</h2>
+          <p className="mt-6 max-w-4xl text-sm leading-7 text-zinc-400 sm:text-base">
+            Deepanshu Sharma is a Full Stack Developer and Computer Science Engineering student passionate about building scalable web applications, real-time systems, and AI-powered solutions.
+          </p>
+        </section>
+
+        <section id="skills" className="border-t border-zinc-900 py-14">
+          <h2 className="font-mono text-4xl font-bold uppercase tracking-[0.06em]">SKILLS</h2>
+          <SkillsCarousel groups={skillGroups} />
+        </section>
+
+        <section id="projects" className="border-t border-zinc-900 py-14">
+          <h2 className="text-center font-mono text-5xl font-bold uppercase tracking-[0.08em] text-zinc-200 sm:text-7xl">FEATURED WORKS</h2>
+          <FeaturedWorksBrowser projects={featuredProjects} />
+        </section>
+
+        <section className="border-t border-zinc-900 py-14">
+          <div className="mb-6 flex items-center justify-between gap-3">
+            <h2 className="font-mono text-4xl font-bold uppercase tracking-[0.06em]">GITHUB ACTIVITY</h2>
+            <a className="border border-zinc-800 px-3 py-2 text-xs uppercase tracking-[0.15em] text-zinc-300" href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer">View Profile</a>
+          </div>
+          <GithubCommitCard stats={githubStats} />
+        </section>
+
+        <section id="contact" className="border-t border-zinc-900 py-14">
+          <h2 className="mb-6 font-mono text-4xl font-bold uppercase tracking-[0.06em] text-zinc-100">CONTACT US</h2>
+
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.35fr] lg:gap-14">
+            <div className="space-y-10">
+              <div>
+                <p className="text-sm text-zinc-400">Send an email</p>
+                <a
+                  href="mailto:deepanshu123sharma4@gmail.com"
+                  className="mt-2 block font-mono text-lg uppercase tracking-[0.03em] text-zinc-100 break-all sm:text-xl"
+                >
+                  DEEPANSHU123SHARMA4@GMAIL.COM
+                </a>
+              </div>
+
+              <div>
+                <p className="text-sm text-zinc-400">Phone</p>
+                <a href="tel:+919310142140" className="mt-2 block font-mono text-lg text-zinc-100 sm:text-xl">
+                  +91 9310142140
+                </a>
+              </div>
+            </div>
+
+            <SimpleContactForm />
+          </div>
+        </section>
+
+        <footer className="border-t border-zinc-900 py-8 text-center text-xs uppercase tracking-[0.18em] text-zinc-500">
+          © {new Date().getFullYear()} DEEPANSHU SHARMA
+        </footer>
+      </div>
+    </main>
+  );
+}
+
+
+
+
+

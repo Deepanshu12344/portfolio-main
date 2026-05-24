@@ -1,0 +1,40 @@
+﻿"use client";
+
+type SkillGroup = {
+  title: string;
+  items: string[];
+};
+
+const logoMap: Record<string, string> = {
+  "REACT": "https://cdn.simpleicons.org/react/61DAFB",
+  "NEXT.JS": "https://cdn.simpleicons.org/nextdotjs/FFFFFF",
+  "JAVASCRIPT": "https://cdn.simpleicons.org/javascript/F7DF1E",
+  "TYPESCRIPT": "https://cdn.simpleicons.org/typescript/3178C6",
+  "TAILWIND CSS": "https://cdn.simpleicons.org/tailwindcss/06B6D4",
+  "NODE.JS": "https://cdn.simpleicons.org/nodedotjs/5FA04E",
+  "EXPRESS.JS": "https://cdn.simpleicons.org/express/FFFFFF",
+  "FASTAPI": "https://cdn.simpleicons.org/fastapi/009688",
+  "DJANGO": "https://cdn.simpleicons.org/django/44B78B",
+  "MONGODB": "https://cdn.simpleicons.org/mongodb/47A248",
+  "POSTGRESQL": "https://cdn.simpleicons.org/postgresql/4169E1",
+  "DOCKER": "https://cdn.simpleicons.org/docker/2496ED",
+  "LINUX": "https://cdn.simpleicons.org/linux/FCC624",
+  "GIT": "https://cdn.simpleicons.org/git/F05032",
+};
+
+export function SkillsCarousel({ groups }: { groups: SkillGroup[] }) {
+  const skills = Array.from(new Set(groups.flatMap((g) => g.items))).filter((s) => logoMap[s]);
+  const looped = [...skills, ...skills, ...skills];
+
+  return (
+    <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden">
+      <div className="skills-track flex w-max gap-4 px-0 group-hover:[animation-play-state:paused] hover:[animation-play-state:paused]">
+        {looped.map((skill, i) => (
+          <div key={`${skill}-${i}`} className="grid h-24 w-24 shrink-0 place-items-center border border-zinc-900 bg-black">
+            <img src={logoMap[skill]} alt={skill} className="h-12 w-12 object-contain" loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
