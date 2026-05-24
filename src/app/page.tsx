@@ -12,8 +12,9 @@ const featuredProjects = [
     title: "TRACER - FACULTY MANAGEMENT SYSTEM",
     category: "EDTECH / RESEARCH",
     description:
-      "Faculty academic management system for publications, conferences, patents, awards, guest lectures, and projects.",
+      "Built a complete faculty academic management system to track publications, conferences, patents, awards, guest lectures, and funded projects in one place. Implemented role-based flows for faculty, HOD, and admin users, structured forms for yearly reporting, and searchable records to simplify accreditation and audit-ready documentation.",
     image: "/tracermain.jpeg",
+    hoverImage: "/tracer.png",
     stack: ["NEXT.JS", "NODE.JS", "MONGODB", "RBAC"],
     liveUrl: "https://github.com/Deepanshu12344",
   },
@@ -21,8 +22,9 @@ const featuredProjects = [
     title: "EVERSURE MEDICAL PRODUCTS",
     category: "PRODUCT Based",
     description:
-      "Scalable responsive MERN website for Polybond India's Eversure brand with reusable architecture and SEO-first pages.",
+      "Developed a scalable and responsive product website for Polybond India's Eversure brand with a reusable MERN architecture. Focused on SEO-first page structure, fast-loading product sections, and mobile-first UX so users can quickly explore categories, compare offerings, and contact the business with minimal friction.",
     image: "/eversuremain.png",
+    hoverImage: "/eversure.png",
     stack: ["MERN", "SEO", "RESPONSIVE UI"],
     liveUrl: "https://www.eversuremedical.com/",
   },
@@ -30,8 +32,9 @@ const featuredProjects = [
     title: "PORTFOLIO WEBSITE",
     category: "portfolio",
     description:
-      "Full-stack AI summarization platform with FastAPI, MongoDB, Streamlit, Docker, and Cohere API with REST + WebSockets.",
+      "Engineered a modern portfolio experience with interactive sections, theme support, animated skill presentation, and project showcase flows optimized for clarity. Emphasized performance, component reusability, and maintainable structure so content updates, UI enhancements, and future integrations can be shipped quickly.",
     image: "/portfoliomain.png",
+    hoverImage: "/projectmain.png",
     stack: ["FASTAPI", "COHERE", "DOCKER", "WEBSOCKETS"],
     liveUrl: "https://graphicpandit.framer.website",
   },
@@ -71,12 +74,12 @@ export default async function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-white px-4 py-8 text-zinc-900 dark:bg-black dark:text-zinc-100 sm:px-8 sm:py-12">
+    <main className="min-h-screen bg-white px-4 py-6 text-zinc-900 dark:bg-black dark:text-zinc-100 sm:px-8 sm:py-10">
       <div className="mx-auto w-full max-w-6xl">
-        <header className="border-b border-zinc-900 pb-5">
+        <header className="fade-up border-b border-zinc-900 pb-4 sm:pb-5">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <p className="font-mono text-xl font-bold uppercase tracking-[0.06em]">DEEPANSHU SHARMA</p>
-            <nav className="flex flex-wrap items-center gap-6 font-mono text-xl font-bold uppercase tracking-[0.06em] text-zinc-200">
+            <p className="font-mono text-base font-bold uppercase tracking-[0.06em] sm:text-xl">DEEPANSHU SHARMA</p>
+            <nav className="flex flex-wrap items-center gap-4 text-sm font-bold uppercase tracking-[0.06em] text-zinc-200 sm:gap-6 sm:text-xl">
               {navItems.map((item) => (
                 <a key={item.href} href={item.href} className="group block h-[1.2em] overflow-hidden">
                   <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
@@ -90,14 +93,14 @@ export default async function Home() {
           </div>
         </header>
 
-        <section className="py-16">
+        <section className="fade-up fade-delay-1 py-12 sm:py-16">
           {/* <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">FULL STACK DEVELOPER</p> */}
-          <h1 className="mt-3 font-mono text-4xl font-bold uppercase tracking-[0.06em] text-zinc-200 sm:text-7xl">
+          <h1 className="text-soft mt-3 font-mono text-3xl font-bold uppercase leading-tight tracking-[0.06em] text-zinc-200 sm:text-5xl lg:text-7xl">
             BUILDING <TypewriterWord words={["SCALABLE APPS", "AI-READY APPS", "MODERN WEB APPS"]} />,
             <br />
             AI SYSTEMS & REAL-TIME PLATFORMS
           </h1>
-          <p className="mt-8 max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
+          <p className="text-soft mt-6 max-w-3xl text-sm leading-7 text-zinc-400 sm:mt-8 sm:text-base">
             I design and build production-grade full stack applications with clean architecture, performance-focused backend systems, and practical AI integrations.
           </p>
           <div className="mt-8 flex flex-wrap gap-6 text-s uppercase tracking-[0.15em]">
@@ -113,22 +116,22 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="about" className="border-t border-zinc-900 py-14">
-          <h2 className="font-mono text-4xl font-bold uppercase tracking-[0.06em]">ABOUT</h2>
-          <p className="mt-6 max-w-4xl text-sm leading-7 text-zinc-400 sm:text-base">
+        <section id="about" className="fade-up fade-delay-2 border-t border-zinc-900 py-10 sm:py-14">
+          <h2 className="font-mono text-3xl font-bold uppercase tracking-[0.06em] sm:text-4xl">ABOUT</h2>
+          <p className="text-soft mt-6 max-w-4xl text-sm leading-7 text-zinc-400 sm:text-base">
             I am a passionate Full Stack Developer and Computer Science Engineering student focused on building scalable web applications, real-time systems, and AI-powered digital experiences. I specialize in modern technologies like React, Next.js, Node.js, MongoDB, and FastAPI, with hands-on experience in developing responsive, high-performance applications.
           </p>
-          <p className="mt-6 max-w-4xl text-sm leading-7 text-zinc-400 sm:text-base">
+          <p className="text-soft mt-6 max-w-4xl text-sm leading-7 text-zinc-400 sm:text-base">
             As a developer, I am driven by curiosity, creativity, and the desire to build impactful solutions that solve real-world problems while delivering smooth and engaging user experiences.          </p>
         </section>
 
-        <section id="skills" className="border-t border-zinc-900 py-14">
-          <h2 className="font-mono text-4xl font-bold uppercase tracking-[0.06em]">SKILLS</h2>
+        <section id="skills" className="fade-up fade-delay-2 border-t border-zinc-900 py-10 sm:py-14">
+          <h2 className="font-mono text-3xl font-bold uppercase tracking-[0.06em] sm:text-4xl">SKILLS</h2>
           <SkillsCarousel groups={skillGroups} />
         </section>
 
-        <section id="projects" className="border-t border-zinc-900 py-14">
-          <h2 className="text-center font-mono text-5xl font-bold uppercase tracking-[0.08em] text-zinc-200 sm:text-7xl">FEATURED WORKS</h2>
+        <section id="projects" className="fade-up fade-delay-3 border-t border-zinc-900 py-10 sm:py-14">
+          <h2 className="text-center font-mono text-3xl font-bold uppercase tracking-[0.08em] text-zinc-200 sm:text-5xl lg:text-7xl">FEATURED WORKS</h2>
           <FeaturedWorksBrowser projects={featuredProjects} />
         </section>
 
@@ -140,8 +143,8 @@ export default async function Home() {
           <GithubCommitCard stats={githubStats} />
         </section> */}
 
-        <section id="contact" className="border-t border-zinc-900 py-14">
-          <h2 className="mb-6 font-mono text-4xl font-bold uppercase tracking-[0.06em] text-zinc-100">CONTACT US</h2>
+        <section id="contact" className="fade-up fade-delay-4 border-t border-zinc-900 py-10 sm:py-14">
+          <h2 className="mb-6 font-mono text-3xl font-bold uppercase tracking-[0.06em] text-zinc-100 sm:text-4xl">CONTACT US</h2>
 
           <div className="grid gap-10 lg:grid-cols-[1fr_1.35fr] lg:gap-14">
             <div className="space-y-10">
@@ -167,10 +170,10 @@ export default async function Home() {
           </div>
         </section>
 
-        <footer className="border-t border-zinc-900 py-8 text-xs uppercase tracking-[0.14em] text-zinc-500">
+        <footer className="fade-up fade-delay-4 border-t border-zinc-900 py-8 text-[11px] uppercase tracking-[0.12em] text-zinc-500 sm:text-xs sm:tracking-[0.14em]">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p>© {new Date().getFullYear()} Deepanshu Sharma. All rights reserved.</p>
-            <div className="flex flex-wrap items-center gap-4">
+            <p className="text-center sm:text-left">© {new Date().getFullYear()} Deepanshu Sharma. All rights reserved.</p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <a href="mailto:deepanshu123sharma4@gmail.com" className="hover:text-zinc-700 dark:hover:text-zinc-300">Email</a>
               <a href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer" className="hover:text-zinc-700 dark:hover:text-zinc-300">GitHub</a>
               <a href="https://www.linkedin.com/in/deepanshu-sharma-164057250/" target="_blank" rel="noreferrer" className="hover:text-zinc-700 dark:hover:text-zinc-300">LinkedIn</a>
@@ -182,8 +185,3 @@ export default async function Home() {
     </main>
   );
 }
-
-
-
-
-

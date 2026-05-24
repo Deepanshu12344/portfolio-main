@@ -44,7 +44,9 @@ export function SkillsCarousel({ groups }: { groups: SkillGroup[] }) {
   const [mounted, setMounted] = useState(false);
   const skills = Array.from(new Set(groups.flatMap((g) => g.items))).filter((s) => logoMap[s]);
   const looped = [...skills, ...skills, ...skills];
-  const isLight = resolvedTheme === "light";
+  // Keep SSR and initial client render identical to avoid hydration mismatch.
+  // Theme-specific logo swap is applied only after mount.
+  const isLight = mounted && resolvedTheme === "light";
 
   useEffect(() => {
     setMounted(true);

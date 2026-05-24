@@ -61,6 +61,52 @@ body[data-browser-open="true"] .cursor-dot {
   will-change: transform;
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up 0.65s ease-out forwards;
+}
+
+.fade-delay-1 { animation-delay: 0.08s; }
+.fade-delay-2 { animation-delay: 0.16s; }
+.fade-delay-3 { animation-delay: 0.24s; }
+.fade-delay-4 { animation-delay: 0.32s; }
+
+.hover-lift {
+  transition: transform 320ms ease, filter 320ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.04);
+}
+
+@keyframes text-soft-float {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-2px);
+    opacity: 0.96;
+  }
+}
+
+.text-soft {
+  animation: text-soft-float 4.8s ease-in-out infinite;
+}
+
+
 /* Light theme overrides for sections that are hard-coded dark */
 html:not(.dark) .bg-black {
   background-color: #ffffff !important;
@@ -126,6 +172,5 @@ html:not(.dark) .github-fixed-theme .text-zinc-300 {
 html:not(.dark) .github-fixed-theme .text-zinc-500 {
   color: #71717a !important;
 }
-
 
 
