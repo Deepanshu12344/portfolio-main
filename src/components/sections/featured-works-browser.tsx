@@ -47,7 +47,7 @@ export function FeaturedWorksBrowser({ projects }: { projects: Project[] }) {
                 alt={project.title}
                 width={1200}
                 height={800}
-                className="h-screen w-full object-cover"
+                className="h-screen w-full bg-black object-contain"
                 priority={i < 2}
               />
             </button>

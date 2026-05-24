@@ -7,31 +7,31 @@ import { SkillsCarousel } from "@/components/sections/skills-carousel";
 
 const featuredProjects = [
   {
-    title: "DMS - DOCUMENT MANAGEMENT SYSTEM",
+    title: "TRACER - FACULTY MANAGEMENT SYSTEM",
     category: "EDTECH / RESEARCH",
     description:
       "Faculty academic management system for publications, conferences, patents, awards, guest lectures, and projects.",
-    image: "/overview.png",
+    image: "/tracermain.jpeg",
     stack: ["NEXT.JS", "NODE.JS", "MONGODB", "RBAC"],
     liveUrl: "https://github.com/Deepanshu12344",
   },
   {
     title: "EVERSURE MEDICAL PRODUCTS",
-    category: "PRODUCT WEBSITE",
+    category: "PRODUCT Based",
     description:
       "Scalable responsive MERN website for Polybond India's Eversure brand with reusable architecture and SEO-first pages.",
-    image: "/projectmain.png",
+    image: "/eversuremain.png",
     stack: ["MERN", "SEO", "RESPONSIVE UI"],
     liveUrl: "https://www.eversuremedical.com/",
   },
   {
-    title: "CHAT SUMMARIZATION & INSIGHTS API",
-    category: "AI PLATFORM",
+    title: "PORTFOLIO WEBSITE",
+    category: "portfolio",
     description:
       "Full-stack AI summarization platform with FastAPI, MongoDB, Streamlit, Docker, and Cohere API with REST + WebSockets.",
-    image: "/overview.png",
+    image: "/portfoliomain.png",
     stack: ["FASTAPI", "COHERE", "DOCKER", "WEBSOCKETS"],
-    liveUrl: "https://github.com/Deepanshu12344",
+    liveUrl: "https://graphicpandit.framer.website",
   },
 ];
 
@@ -45,7 +45,7 @@ const skillGroups = [
 
 function GitHubLogo() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
+    <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current" aria-hidden="true">
       <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.17c-3.34.72-4.04-1.41-4.04-1.41-.54-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.84 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.67-.31-5.48-1.34-5.48-5.95 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.56.12-3.25 0 0 1.01-.33 3.3 1.23a11.4 11.4 0 0 1 6 0c2.28-1.56 3.29-1.23 3.29-1.23.66 1.69.24 2.94.12 3.25.77.84 1.24 1.91 1.24 3.22 0 4.63-2.82 5.64-5.51 5.94.43.37.82 1.1.82 2.23v3.31c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z" />
     </svg>
   );
@@ -53,7 +53,7 @@ function GitHubLogo() {
 
 function LinkedInLogo() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
+    <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current" aria-hidden="true">
       <path d="M4.98 3.5a2.5 2.5 0 1 0 .02 5 2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3V9Zm7 0h3.83v1.71h.05c.53-1 1.85-2.06 3.8-2.06C21.16 8.65 22 10.8 22 14.02V21h-4v-6.19c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.37 1.61-2.37 3.27V21h-4V9Z" />
     </svg>
   );
@@ -87,10 +87,10 @@ export default async function Home() {
           <p className="mt-8 max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
             I design and build production-grade full stack applications with clean architecture, performance-focused backend systems, and practical AI integrations.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.15em]">
+          <div className="mt-8 flex flex-wrap gap-6 text-s uppercase tracking-[0.15em]">
             <a className="inline-flex items-center text-zinc-200" href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer" aria-label="GitHub"><GitHubLogo /></a>
             <a className="inline-flex items-center text-zinc-200" href="https://www.linkedin.com/in/deepanshu-sharma-164057250/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedInLogo /></a>
-            <a className="inline-flex items-center gap-2 text-zinc-200" href="#" aria-label="Download Resume"><Download className="h-4 w-4" /><span>Resume</span></a>
+            <a className="inline-flex items-center gap-2 text-zinc-200" href="#" aria-label="Download Resume"><Download className="h-7 w-7" /><span>Resume</span></a>
           </div>
         </section>
 
@@ -153,8 +153,6 @@ export default async function Home() {
     </main>
   );
 }
-
-
 
 
 
