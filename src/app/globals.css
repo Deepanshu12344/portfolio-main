@@ -1,6 +1,12 @@
 ﻿@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  --background: #ffffff;
+  --foreground: #111111;
+}
+
+.dark {
   --background: #000000;
   --foreground: #e5e7eb;
 }
@@ -54,3 +60,72 @@ body[data-browser-open="true"] .cursor-dot {
   animation: skills-scroll 28s linear infinite;
   will-change: transform;
 }
+
+/* Light theme overrides for sections that are hard-coded dark */
+html:not(.dark) .bg-black {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .bg-zinc-950 {
+  background-color: #f8fafc !important;
+}
+
+html:not(.dark) .border-zinc-900,
+html:not(.dark) .border-zinc-800 {
+  border-color: #d4d4d8 !important;
+}
+
+html:not(.dark) .text-zinc-100,
+html:not(.dark) .text-zinc-200 {
+  color: #111111 !important;
+}
+
+html:not(.dark) .text-zinc-300,
+html:not(.dark) .text-zinc-400,
+html:not(.dark) .text-zinc-500 {
+  color: #52525b !important;
+}
+
+/* Keep GitHub contributions card visually fixed across theme toggle */
+.github-fixed-theme {
+  background-color: #0d1117 !important;
+  border-color: #3f3f46 !important;
+}
+
+.github-fixed-theme .border-zinc-800 {
+  border-color: #3f3f46 !important;
+}
+
+.github-fixed-theme .text-zinc-100,
+.github-fixed-theme .text-zinc-200 {
+  color: #e4e4e7 !important;
+}
+
+.github-fixed-theme .text-zinc-300 {
+  color: #d4d4d8 !important;
+}
+
+.github-fixed-theme .text-zinc-500 {
+  color: #71717a !important;
+}
+
+html:not(.dark) .github-fixed-theme,
+html:not(.dark) .github-fixed-theme * {
+  color: #e4e4e7;
+}
+
+html:not(.dark) .github-fixed-theme .text-zinc-100,
+html:not(.dark) .github-fixed-theme .text-zinc-200 {
+  color: #e4e4e7 !important;
+}
+
+html:not(.dark) .github-fixed-theme .text-zinc-300 {
+  color: #d4d4d8 !important;
+}
+
+html:not(.dark) .github-fixed-theme .text-zinc-500 {
+  color: #71717a !important;
+}
+
+
+

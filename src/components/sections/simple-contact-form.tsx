@@ -11,23 +11,18 @@ export function SimpleContactForm() {
     setLoading(true);
     setStatus("");
 
-    const form = new FormData(e.currentTarget);
-    const body = {
-      name: form.get("name"),
-      email: form.get("email"),
-      message: form.get("message"),
-    };
-
-    const res = await fetch("/api/contact", {
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
+    const res = await fetch("https://formspree.io/f/xgoqlknv", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      headers: { Accept: "application/json" },
+      body: form,
     });
 
     setLoading(false);
     if (res.ok) {
       setStatus("Message sent.");
-      e.currentTarget.reset();
+      formEl.reset();
     } else {
       setStatus("Failed to send.");
     }
@@ -51,7 +46,7 @@ export function SimpleContactForm() {
           name="email"
           type="email"
           required
-          placeholder="jane@framer.com"
+          placeholder="jane@gmail.com"
           className="w-full rounded-sm border border-zinc-900 bg-zinc-950 px-4 py-3 text-sm text-zinc-200 outline-none placeholder:text-zinc-600"
         />
       </div>

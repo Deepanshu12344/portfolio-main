@@ -1,9 +1,11 @@
-﻿import { Download } from "lucide-react";
+﻿import { Mail } from "lucide-react";
 import { GithubCommitCard } from "@/components/sections/github-commit-card";
 import { SimpleContactForm } from "@/components/sections/simple-contact-form";
 import { FeaturedWorksBrowser } from "@/components/sections/featured-works-browser";
 import { getGithubActivity } from "@/lib/github/activity";
 import { SkillsCarousel } from "@/components/sections/skills-carousel";
+import { TypewriterWord } from "@/components/sections/typewriter-word";
+import { ThemeDotToggle } from "@/components/layout/theme-dot-toggle";
 
 const featuredProjects = [
   {
@@ -61,18 +63,29 @@ function LinkedInLogo() {
 
 export default async function Home() {
   const githubStats = await getGithubActivity();
+  const navItems = [
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
+  ];
 
   return (
-    <main className="min-h-screen bg-black px-4 py-8 text-zinc-100 sm:px-8 sm:py-12">
+    <main className="min-h-screen bg-white px-4 py-8 text-zinc-900 dark:bg-black dark:text-zinc-100 sm:px-8 sm:py-12">
       <div className="mx-auto w-full max-w-6xl">
         <header className="border-b border-zinc-900 pb-5">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <p className="font-mono text-xl font-bold uppercase tracking-[0.06em]">DEEPANSHU SHARMA</p>
-            <nav className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.18em] text-zinc-400">
-              <a href="#about">About</a>
-              <a href="#skills">Skills</a>
-              <a href="#projects">Projects</a>
-              <a href="#contact">Contact</a>
+            <nav className="flex flex-wrap items-center gap-6 font-mono text-xl font-bold uppercase tracking-[0.06em] text-zinc-200">
+              {navItems.map((item) => (
+                <a key={item.href} href={item.href} className="group block h-[1.2em] overflow-hidden">
+                  <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
+                    <span className="block">{item.label}</span>
+                    <span className="block">{item.label}</span>
+                  </span>
+                </a>
+              ))}
+              <ThemeDotToggle />
             </nav>
           </div>
         </header>
@@ -80,7 +93,7 @@ export default async function Home() {
         <section className="py-16">
           {/* <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">FULL STACK DEVELOPER</p> */}
           <h1 className="mt-3 font-mono text-4xl font-bold uppercase tracking-[0.06em] text-zinc-200 sm:text-7xl">
-            BUILDING SCALABLE APPS,
+            BUILDING <TypewriterWord words={["SCALABLE APPS", "AI-READY APPS", "MODERN WEB APPS"]} />,
             <br />
             AI SYSTEMS & REAL-TIME PLATFORMS
           </h1>
@@ -90,15 +103,23 @@ export default async function Home() {
           <div className="mt-8 flex flex-wrap gap-6 text-s uppercase tracking-[0.15em]">
             <a className="inline-flex items-center text-zinc-200" href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer" aria-label="GitHub"><GitHubLogo /></a>
             <a className="inline-flex items-center text-zinc-200" href="https://www.linkedin.com/in/deepanshu-sharma-164057250/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedInLogo /></a>
-            <a className="inline-flex items-center gap-2 text-zinc-200" href="#" aria-label="Download Resume"><Download className="h-7 w-7" /><span>Resume</span></a>
+                        <a
+              className="inline-flex items-center text-zinc-200"
+              href="mailto:deepanshu123sharma4@gmail.com"
+              aria-label="Send Email"
+            >
+              <Mail className="h-7 w-7" />
+            </a>
           </div>
         </section>
 
         <section id="about" className="border-t border-zinc-900 py-14">
           <h2 className="font-mono text-4xl font-bold uppercase tracking-[0.06em]">ABOUT</h2>
           <p className="mt-6 max-w-4xl text-sm leading-7 text-zinc-400 sm:text-base">
-            Deepanshu Sharma is a Full Stack Developer and Computer Science Engineering student passionate about building scalable web applications, real-time systems, and AI-powered solutions.
+            I am a passionate Full Stack Developer and Computer Science Engineering student focused on building scalable web applications, real-time systems, and AI-powered digital experiences. I specialize in modern technologies like React, Next.js, Node.js, MongoDB, and FastAPI, with hands-on experience in developing responsive, high-performance applications.
           </p>
+          <p className="mt-6 max-w-4xl text-sm leading-7 text-zinc-400 sm:text-base">
+            As a developer, I am driven by curiosity, creativity, and the desire to build impactful solutions that solve real-world problems while delivering smooth and engaging user experiences.          </p>
         </section>
 
         <section id="skills" className="border-t border-zinc-900 py-14">
@@ -111,13 +132,13 @@ export default async function Home() {
           <FeaturedWorksBrowser projects={featuredProjects} />
         </section>
 
-        <section className="border-t border-zinc-900 py-14">
+        {/* <section className="border-t border-zinc-900 py-14">
           <div className="mb-6 flex items-center justify-between gap-3">
             <h2 className="font-mono text-4xl font-bold uppercase tracking-[0.06em]">GITHUB ACTIVITY</h2>
             <a className="border border-zinc-800 px-3 py-2 text-xs uppercase tracking-[0.15em] text-zinc-300" href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer">View Profile</a>
           </div>
           <GithubCommitCard stats={githubStats} />
-        </section>
+        </section> */}
 
         <section id="contact" className="border-t border-zinc-900 py-14">
           <h2 className="mb-6 font-mono text-4xl font-bold uppercase tracking-[0.06em] text-zinc-100">CONTACT US</h2>
@@ -128,9 +149,9 @@ export default async function Home() {
                 <p className="text-sm text-zinc-400">Send an email</p>
                 <a
                   href="mailto:deepanshu123sharma4@gmail.com"
-                  className="mt-2 block font-mono text-lg uppercase tracking-[0.03em] text-zinc-100 break-all sm:text-xl"
+                  className="mt-2 block font-mono text-lg tracking-[0.03em] text-zinc-100 break-all sm:text-xl"
                 >
-                  DEEPANSHU123SHARMA4@GMAIL.COM
+                  deepanshu123sharma4@gmail.com
                 </a>
               </div>
 
@@ -146,13 +167,23 @@ export default async function Home() {
           </div>
         </section>
 
-        <footer className="border-t border-zinc-900 py-8 text-center text-xs uppercase tracking-[0.18em] text-zinc-500">
-          © {new Date().getFullYear()} DEEPANSHU SHARMA
+        <footer className="border-t border-zinc-900 py-8 text-xs uppercase tracking-[0.14em] text-zinc-500">
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <p>© {new Date().getFullYear()} Deepanshu Sharma. All rights reserved.</p>
+            <div className="flex flex-wrap items-center gap-4">
+              <a href="mailto:deepanshu123sharma4@gmail.com" className="hover:text-zinc-700 dark:hover:text-zinc-300">Email</a>
+              <a href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer" className="hover:text-zinc-700 dark:hover:text-zinc-300">GitHub</a>
+              <a href="https://www.linkedin.com/in/deepanshu-sharma-164057250/" target="_blank" rel="noreferrer" className="hover:text-zinc-700 dark:hover:text-zinc-300">LinkedIn</a>
+              <a href="/Deepanshu_Resume_FS.pdf" download className="hover:text-zinc-700 dark:hover:text-zinc-300">Resume</a>
+            </div>
+          </div>
         </footer>
       </div>
     </main>
   );
 }
+
+
 
 
 

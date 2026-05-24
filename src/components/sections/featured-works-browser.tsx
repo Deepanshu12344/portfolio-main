@@ -40,14 +40,14 @@ export function FeaturedWorksBrowser({ projects }: { projects: Project[] }) {
             <button
               type="button"
               onClick={() => setActiveIndex(i)}
-              className="block w-full overflow-hidden border border-zinc-900 bg-zinc-950 text-left"
+              className="block w-full overflow-hidden bg-zinc-950 text-left"
             >
               <Image
                 src={project.image}
                 alt={project.title}
                 width={1200}
                 height={800}
-                className="h-screen w-full bg-black object-contain"
+                className="h-screen w-full bg-black object-cover"
                 priority={i < 2}
               />
             </button>
@@ -60,8 +60,8 @@ export function FeaturedWorksBrowser({ projects }: { projects: Project[] }) {
 
       {active ? (
         <div className="fixed inset-0 z-[120] bg-black" role="dialog" aria-modal="true">
-          <div className="flex h-full w-full flex-col overflow-hidden border border-zinc-800 bg-[#0d1117]">
-            <div className="flex items-center gap-2 border-b border-zinc-800 px-4 py-3">
+          <div className="flex h-full w-full flex-col overflow-hidden bg-[#0d1117]">
+            <div className="flex items-center gap-2 px-4 py-3">
               <button
                 type="button"
                 onClick={() => setActiveIndex(null)}
