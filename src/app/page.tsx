@@ -88,9 +88,9 @@ export default async function Home() {
             I design and build production-grade full stack applications with clean architecture, performance-focused backend systems, and practical AI integrations.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.15em]">
-            <a className="border border-zinc-800 px-4 py-3 text-zinc-200" href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer" aria-label="GitHub"><GitHubLogo /></a>
-            <a className="border border-zinc-800 px-4 py-3 text-zinc-200" href="https://www.linkedin.com/in/deepanshu-sharma-164057250/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedInLogo /></a>
-            <a className="inline-flex items-center gap-2 border border-zinc-800 px-4 py-3 text-zinc-200" href="#" aria-label="Download Resume"><Download className="h-4 w-4" /></a>
+            <a className="inline-flex items-center text-zinc-200" href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer" aria-label="GitHub"><GitHubLogo /></a>
+            <a className="inline-flex items-center text-zinc-200" href="https://www.linkedin.com/in/deepanshu-sharma-164057250/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedInLogo /></a>
+            <a className="inline-flex items-center gap-2 text-zinc-200" href="#" aria-label="Download Resume"><Download className="h-4 w-4" /><span>Resume</span></a>
           </div>
         </section>
 

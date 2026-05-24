@@ -31,7 +31,7 @@ export function SkillsCarousel({ groups }: { groups: SkillGroup[] }) {
     <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden">
       <div className="skills-track flex w-max gap-4 px-0 group-hover:[animation-play-state:paused] hover:[animation-play-state:paused]">
         {looped.map((skill, i) => (
-          <div key={`${skill}-${i}`} className="grid h-24 w-24 shrink-0 place-items-center border border-zinc-900 bg-black">
+          <div key={`${skill}-${i}`} className="grid h-24 w-24 shrink-0 place-items-center">
             <Image
               src={logoMap[skill]}
               alt={skill}
