@@ -63,25 +63,21 @@ export function FeaturedWorksBrowser({ projects }: { projects: Project[] }) {
       </div>
 
       {active ? (
-        <div className="fixed inset-0 z-[120] bg-black" role="dialog" aria-modal="true">
-          <div className="flex h-full w-full flex-col overflow-hidden bg-[#0d1117]">
-            <div className="flex items-center gap-2 px-3 py-3 sm:px-4">
-              <button
-                type="button"
-                onClick={() => setActiveIndex(null)}
-                className="h-4 w-4 rounded-full bg-red-500"
-                aria-label="Close"
-              />
-              <p className="ml-2 truncate pr-2 text-[10px] uppercase tracking-[0.12em] text-zinc-400 sm:ml-3 sm:text-xs sm:tracking-[0.14em]">{active.title}</p>
-            </div>
-
-            <iframe
-              title={active.title}
-              src={active.liveUrl}
-              className="h-full w-full bg-black"
-              referrerPolicy="no-referrer"
-            />
-          </div>
+        <div className="fixed inset-0 z-[120]" role="dialog" aria-modal="true">
+          <button
+            type="button"
+            onClick={() => setActiveIndex(null)}
+            className="absolute right-3 top-3 z-10 rounded-md border border-zinc-700 bg-black/70 px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-zinc-100 backdrop-blur sm:right-4 sm:top-4 sm:text-xs"
+            aria-label="Close"
+          >
+            Close
+          </button>
+          <iframe
+            title={active.title}
+            src={active.liveUrl}
+            className="h-screen w-screen bg-black"
+            referrerPolicy="no-referrer"
+          />
         </div>
       ) : null}
     </>

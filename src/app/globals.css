@@ -106,6 +106,31 @@ body[data-browser-open="true"] .cursor-dot {
   animation: text-soft-float 4.8s ease-in-out infinite;
 }
 
+@keyframes available-circle-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.available-circle-spin {
+  animation: available-circle-spin 10s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .available-circle-spin {
+    animation: none !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* Light theme overrides for sections that are hard-coded dark */
 html:not(.dark) .bg-black {
@@ -172,5 +197,3 @@ html:not(.dark) .github-fixed-theme .text-zinc-300 {
 html:not(.dark) .github-fixed-theme .text-zinc-500 {
   color: #71717a !important;
 }
-
-

@@ -6,6 +6,8 @@ import { getGithubActivity } from "@/lib/github/activity";
 import { SkillsCarousel } from "@/components/sections/skills-carousel";
 import { TypewriterWord } from "@/components/sections/typewriter-word";
 import { ThemeDotToggle } from "@/components/layout/theme-dot-toggle";
+import { ServicesPanels } from "@/components/sections/services-panels";
+import { AvailableCircle } from "@/components/effects/available-circle";
 
 const featuredProjects = [
   {
@@ -70,6 +72,7 @@ export default async function Home() {
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
+    { href: "/services", label: "Services" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -94,25 +97,21 @@ export default async function Home() {
         </header>
 
         <section className="fade-up fade-delay-1 py-12 sm:py-16">
-          {/* <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">FULL STACK DEVELOPER</p> */}
           <h1 className="text-soft mt-3 font-mono text-3xl font-bold uppercase leading-tight tracking-[0.06em] text-zinc-200 sm:text-5xl lg:text-7xl">
             BUILDING <TypewriterWord words={["SCALABLE APPS", "AI-READY APPS", "MODERN WEB APPS"]} />,
             <br />
             AI SYSTEMS & REAL-TIME PLATFORMS
           </h1>
-          <p className="text-soft mt-6 max-w-3xl text-sm leading-7 text-zinc-400 sm:mt-8 sm:text-base">
-            I design and build production-grade full stack applications with clean architecture, performance-focused backend systems, and practical AI integrations.
-          </p>
+          <div className="mt-6 flex max-w-5xl flex-col gap-6 sm:mt-8 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-soft max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
+              I design and build production-grade full stack applications with clean architecture, performance-focused backend systems, and practical AI integrations.
+            </p>
+            <AvailableCircle className="self-end sm:self-auto" size={156} />
+          </div>
           <div className="mt-8 flex flex-wrap gap-6 text-s uppercase tracking-[0.15em]">
             <a className="inline-flex items-center text-zinc-200" href="https://github.com/Deepanshu12344" target="_blank" rel="noreferrer" aria-label="GitHub"><GitHubLogo /></a>
             <a className="inline-flex items-center text-zinc-200" href="https://www.linkedin.com/in/deepanshu-sharma-164057250/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedInLogo /></a>
-                        <a
-              className="inline-flex items-center text-zinc-200"
-              href="mailto:deepanshu123sharma4@gmail.com"
-              aria-label="Send Email"
-            >
-              <Mail className="h-7 w-7" />
-            </a>
+            <a className="inline-flex items-center text-zinc-200" href="mailto:deepanshu123sharma4@gmail.com" aria-label="Send Email"><Mail className="h-7 w-7" /></a>
           </div>
         </section>
 
@@ -122,7 +121,8 @@ export default async function Home() {
             I am a passionate Full Stack Developer and Computer Science Engineering student focused on building scalable web applications, real-time systems, and AI-powered digital experiences. I specialize in modern technologies like React, Next.js, Node.js, MongoDB, and FastAPI, with hands-on experience in developing responsive, high-performance applications.
           </p>
           <p className="text-soft mt-6 max-w-4xl text-sm leading-7 text-zinc-400 sm:text-base">
-            As a developer, I am driven by curiosity, creativity, and the desire to build impactful solutions that solve real-world problems while delivering smooth and engaging user experiences.          </p>
+            As a developer, I am driven by curiosity, creativity, and the desire to build impactful solutions that solve real-world problems while delivering smooth and engaging user experiences.
+          </p>
         </section>
 
         <section id="skills" className="fade-up fade-delay-2 border-t border-zinc-900 py-10 sm:py-14">
@@ -135,6 +135,7 @@ export default async function Home() {
           <FeaturedWorksBrowser projects={featuredProjects} />
         </section>
 
+
         {/* <section className="border-t border-zinc-900 py-14">
           <div className="mb-6 flex items-center justify-between gap-3">
             <h2 className="font-mono text-4xl font-bold uppercase tracking-[0.06em]">GITHUB ACTIVITY</h2>
@@ -144,7 +145,7 @@ export default async function Home() {
         </section> */}
 
         <section id="contact" className="fade-up fade-delay-4 border-t border-zinc-900 py-10 sm:py-14">
-          <h2 className="mb-6 font-mono text-3xl font-bold uppercase tracking-[0.06em] text-zinc-100 sm:text-4xl">CONTACT US</h2>
+          <h2 className="mb-6 font-mono text-3xl font-bold uppercase tracking-[0.06em] text-zinc-100 sm:text-4xl">CONTACT ME</h2>
 
           <div className="grid gap-10 lg:grid-cols-[1fr_1.35fr] lg:gap-14">
             <div className="space-y-10">

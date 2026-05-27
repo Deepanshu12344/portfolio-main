@@ -16,6 +16,6 @@ export function ScrollProgress() {
     return () => window.removeEventListener("scroll", update);
   }, []);
 
-  return <div className="fixed left-0 top-0 z-[60] h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500" style={{ width: `${progress}%` }} />;
+  return <div className="fixed left-0 top-0 z-[60] h-1 bg-black dark:bg-white" style={{ width: `${progress}%` }} />;
 }
 
